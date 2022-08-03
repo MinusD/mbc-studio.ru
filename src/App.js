@@ -1,21 +1,31 @@
 import './App.css';
 import Navbar from "./components/Navbar/Navbar";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {Route, Routes, useLocation} from "react-router-dom";
 import {publicRoutes} from "./routes/Routes";
-import ParticlesBg from "./animations/particleconfig";
+import {CSSTransition, TransitionGroup} from "react-transition-group";
 
 function App() {
+    const location = useLocation();
     return (
         <div className=" bg-gray-900  min-h-screen overflow-auto max-w-screen">
-            <BrowserRouter>
-                <ParticlesBg/>
-                <Navbar/>
-                <Routes>
-                    {
-                        publicRoutes.map(route => <Route key={route.path} path={route.path} element={route.element}
-                                                      exact={route.exact}/>)}
-                </Routes>
-            </BrowserRouter>
+            <Navbar/>
+            <TransitionGroup>
+                <CSSTransition
+                    in={true}
+                    key={location.pathname}
+                    classNames="fade"
+                    timeout={400}
+                    unmountOnEnter>
+                    <Routes location={location}>
+                        {
+                            publicRoutes.map(
+                                route => <Route key={route.path} path={route.path} exact={route.exact}
+                                                element={route.element}/>
+                            )
+                        }
+                    </Routes>
+                </CSSTransition>
+            </TransitionGroup>
         </div>
     );
 }
