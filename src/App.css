@@ -1,31 +1,15 @@
-.App {
-    text-align: center;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
 }
 
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
-}
-
-.App-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-}
-
-.App-link {
-    color: #61dafb;
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
 }
 
 @keyframes App-logo-spin {
@@ -40,25 +24,33 @@
 
 .fade-enter {
     opacity: 0;
-    transform: translateX(-200%);
+    transform: translateY(20%);
 }
 
 .fade-enter-active {
     opacity: 1;
-    transform: translateX(0%);
+    transform: translateY(0%);
 }
 
 .fade-exit {
     opacity: 0;
-    transform: translateX(0%);
+    transform: translateY(0%);
 }
 
 .fade-exit-active {
     opacity: 0;
-    transform: translateX(0%);
+    transform: translateY(0%);
 }
 
 .fade-enter-active,
 .fade-exit-active {
     transition: opacity 500ms, transform 500ms;
 }
+
+
+::-webkit-scrollbar {
+    width: 20px;
+    height: 20px;
+    display: none;
+}
+

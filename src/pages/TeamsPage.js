@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import {Link} from "react-router-dom";
 import NavbarTeams from "../components/Navbar/Navbardropouts/NavbarTeams";
 
 const TeamsPage = () => {
@@ -7,7 +6,7 @@ const TeamsPage = () => {
     return (
         <div className=" flex flex-col ">
             <NavbarTeams setTeam={setTeam}/>
-            <div className="my-6 text-amber-50 text-xl flex flex-column ">
+            <div className="my-6 text-amber-50 text-xl flex flex-column mx-auto h-auto px-2  ">
                 {(() => {
                     switch (team) {
                         case "administration":
